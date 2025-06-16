@@ -28,10 +28,9 @@ describe("test for class Team", () => {
     expect(team.toArray()).toEqual(["dwarf", "elf", "orc"]);
   });
 
-  test("error when duplicating character", () => {
-    expect(() => team.addAll("dwarf", "elf", "dwarf")).toThrow(
-      new Error("Персонаж dwarf уже присутствует в команде")
-    );
+  test("Ignore errors on duplicates", () => {
+    team.addAll("dwarf", "elf", "dwarf");
+    expect(team.toArray()).toEqual(["dwarf", "elf"]);
   });
 
   test("converting Set to array", () => {

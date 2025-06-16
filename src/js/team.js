@@ -12,10 +12,9 @@ export default class Team {
 
   addAll(...names) {
   names.forEach((name) => {
-    if (this.members.has(name)) {
-      throw new Error(`Персонаж ${name} уже присутствует в команде`);
+    if (!this.members.has(name)) {
+      this.members.add(name);
     }
-    this.add(name);
   });
 }
 
